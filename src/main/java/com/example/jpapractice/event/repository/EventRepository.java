@@ -1,8 +1,6 @@
-package com.example.jpapractice.repository;
+package com.example.jpapractice.event.repository;
 
-import com.example.jpapractice.model.Event;
-import org.hibernate.query.Query;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.jpapractice.event.model.Event;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

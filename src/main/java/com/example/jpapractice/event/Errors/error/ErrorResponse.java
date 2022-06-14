@@ -1,4 +1,4 @@
-package com.example.jpapractice.Errors.error;
+package com.example.jpapractice.event.Errors.error;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,12 +1,10 @@
-package com.example.jpapractice.service;
+package com.example.jpapractice.event.service;
 
-import com.example.jpapractice.model.Event;
-import com.example.jpapractice.repository.EventRepository;
+import com.example.jpapractice.event.model.Event;
+import com.example.jpapractice.event.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Service

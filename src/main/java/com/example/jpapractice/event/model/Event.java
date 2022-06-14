@@ -1,4 +1,4 @@
-package com.example.jpapractice.model;
+package com.example.jpapractice.event.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

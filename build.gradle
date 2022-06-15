@@ -24,7 +24,9 @@ dependencies {
     implementation ('org.springframework.boot:spring-boot-starter-web'){
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
     }
-    implementation 'org.axonframework:axon-spring-boot-starter:4.5.10'
+    implementation ('org.axonframework:axon-spring-boot-starter:4.5.10'){
+        exclude group: 'org.axonframework', module: 'axon-server-connector'
+    }
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'mysql:mysql-connector-java'

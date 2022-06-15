@@ -24,7 +24,7 @@ public class ManageAccountService {
 
     @EventHandler
     public void on(AccountCreatedEvent accountCreatedEvent){
-        log.info("Handling AccountCreditedEvent...");
+        log.info("Handling AccountCreatedEvent...");
 
         Account account = new Account();
         account.setAccountId(accountCreatedEvent.getId());
@@ -54,12 +54,11 @@ public class ManageAccountService {
     public void on(AccountCreditedEvent accountCreditedEvent){
         log.info("Handling AccountCreditedEvent...");
 
-        Optional<Account> account = accountRepository.findById(accountCreditedEvent.getId());
-        if(account.isPresent())
+        Account account = accountRepository.findById(accountCreditedEvent.getId()).orElse(null);
+        if(account!=null)
         {
-            Account account1 = account.get();
-            account1.setBalance(account1.getBalance().add(accountCreditedEvent.getAmount()));
-            accountRepository.save(account1);
+            account.setBalance(account.getBalance().add(accountCreditedEvent.getAmount()));
+            accountRepository.save(account);
         }
         else {
             log.info("Account not found....");
@@ -70,12 +69,11 @@ public class ManageAccountService {
     public void on(AccountDebitedEvent accountDebitedEvent){
         log.info("Handling AccountDebitedEvent...");
 
-        Optional<Account> account = accountRepository.findById(accountDebitedEvent.getId());
-        if(account.isPresent())
+        Account account = accountRepository.findById(accountDebitedEvent.getId()).orElse(null);
+        if(account!=null)
         {
-            Account account1 = account.get();
-            account1.setBalance(account1.getBalance().subtract(accountDebitedEvent.getAmount()));
-            accountRepository.save(account1);
+            account.setBalance(account.getBalance().subtract(accountDebitedEvent.getAmount()));
+            accountRepository.save(account);
         }
         else {
             log.info("Account not found....");

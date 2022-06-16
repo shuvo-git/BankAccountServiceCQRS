@@ -38,7 +38,7 @@ public class BankAccountController {
         try{
             CompletableFuture<String> response = accountCommandService.depositToAccount(request);
 
-            return new ResponseEntity<>(response.get(),HttpStatus.OK);
+            return new ResponseEntity<>("Account Credited",HttpStatus.OK);
         }
         catch (Exception e){
             return new ResponseEntity<>("An Error Occured", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -50,7 +50,7 @@ public class BankAccountController {
         try{
             CompletableFuture<String> response = accountCommandService.withdrawFromAccount(request);
 
-            return new ResponseEntity<>(response.get(),HttpStatus.OK);
+            return new ResponseEntity<>("Account Debited",HttpStatus.OK);
         }
         catch (Exception e){
             return new ResponseEntity<>("An Error Occured", HttpStatus.INTERNAL_SERVER_ERROR);
